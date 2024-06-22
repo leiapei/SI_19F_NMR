@@ -66,7 +66,6 @@ X_encoded = np.hstack([distances_encoded, atom_types_encoded, charges, nums, en,
 y = data['chemical_shift']
 # 80-20 train-test split
 X_train, X_test, y_train, y_test = train_test_split(X_encoded, y, test_size=0.2, random_state=42)
-models = ["RDG"]
 for model in models:
     with open(f"model_files/{model}_3.pkl", "rb") as pickle_file:
         predictor = pickle.load(pickle_file)
