@@ -1,4 +1,4 @@
-# import nevessary libraries for data manipulation, machine learning, and plotting
+# Import necessary libraries for data manipulation, machine learning, and plotting
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
