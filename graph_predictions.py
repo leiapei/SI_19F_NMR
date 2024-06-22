@@ -80,11 +80,7 @@ y = data['chemical_shift']
 # Splits data into 80-20 train-test ratio
 X_train, X_test, y_train, y_test = train_test_split(X_encoded, y, test_size=0.2, random_state=42)
 
-# List initalized to Ridge regression model
-models = ["RDG"]
-
-# Loads Ridge regression model from a pickle file
-# Retrains model on training data, makes predictions on text set
+# Plots model predictions by loading saved models from pickle files and re-evaluating on the test data
 for model in models:
     with open(f"model_files/{model}_3.pkl", "rb") as pickle_file:
         predictor = pickle.load(pickle_file)
