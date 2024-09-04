@@ -37,10 +37,10 @@ np.int = int
 from sklearn.metrics import mean_absolute_error, r2_score
 
 # Read in all the datasets for each angstrom level into pandas dataframes
-data_5 = pd.read_csv("data_5.csv")
-data_4 = pd.read_csv("data_4.csv")
-data_3 = pd.read_csv("data_3.csv")
-data_2 = pd.read_csv("data_2.csv")
+data_5 = pd.read_csv("5_angstrom_shifts.csv")
+data_4 = pd.read_csv("4_angstrom_shifts.csv")
+data_3 = pd.read_csv("3_angstrom_shifts.csv")
+data_2 = pd.read_csv("2_angstrom_shifts.csv")
 
 # Function to "flatten" all input features for each fluorine atom's neighbors (distance, id, charge, atomic number, electronegativity, mass number)
 def flatten_neighbors_with_types(neighbors):
@@ -216,14 +216,14 @@ print("1) DT done")
 
 # Purpose of uploading to csv early: tuning process generally takes a long time (especially for BayesSearchCV), so in case the code stops in the middle, the results are saved and reread using pandas  
 # Then reload the DataFrames from the saved csv files.
-results.to_csv("results_temp_2.csv", index=False) 
-parameters.to_csv("parameters_temp_2.csv", index=False)
-stderr.to_csv("stderr_temp_2.csv", index=False)
+results.to_csv("results_temp_3D.csv", index=False) 
+parameters.to_csv("parameters_temp_3D.csv", index=False)
+stderr.to_csv("stderr_temp_3D.csv", index=False)
 
 # Reload the DataFrames from saved csv files
-stderr = pd.read_csv("stderr_temp_2.csv")
-parameters = pd.read_csv("parameters_temp_2.csv")
-results = pd.read_csv("results_temp_2.csv")
+stderr = pd.read_csv("stderr_temp_3D.csv")
+parameters = pd.read_csv("parameters_temp_3D.csv")
+results = pd.read_csv("results_temp_3D.csv")
 
 ## Tuning Support Vector Regression
 # Define search space (range of hyperparameters) for Bayesian Optimization
